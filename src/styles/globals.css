@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.circlelanding {
+  animation: circleanimation 20s infinite, bubble-anim 2s infinite;
+}
+@keyframes bubble-anim {
+  0% {
+    transform: scale(1);
+  }
+  20% {
+    transform: scaleY(0.9) scaleX(1.05);
+  }
+  48% {
+    transform: scaleY(1.1) scaleX(0.95);
+  }
+  68% {
+    transform: scaleY(0.98) scaleX(1.02);
+  }
+  80% {
+    transform: scaleY(1.02) scaleX(0.98);
+  }
+  97%,
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes circleanimation {
+  from,
+  to {
+    background-color: #ff4606;
+  }
+  10% {
+    background-color: rgb(219, 10, 91);
+  }
+  20% {
+    background-color: rgb(89, 171, 227);
+  }
+  30% {
+    background-color: rgb(37, 116, 169);
+  }
+  40% {
+    background-color: rgb(3, 201, 169);
+  }
+  50% {
+    background-color: rgb(22, 160, 133);
+  }
+  60% {
+    background-color: rgb(250, 220, 46);
+  }
+  70% {
+    background-color: rgb(243, 156, 18);
+  }
+  80% {
+    background-color: rgb(47, 104, 216);
+  }
+  90% {
+    background-color: #ff4606;
+  }
+}
+
+.circle {
+  animation: aparecer 0.5s ease-in-out forwards;
+}
+.circle:nth-child(1) {
+  animation-delay: 0.5s;
+}
+.circle:nth-child(2) {
+  animation-delay: 1s;
+}
+.circle:nth-child(3) {
+  animation-delay: 1.5s;
+}
+.circle:nth-child(4) {
+  animation-delay: 2s;
+}
+
+@keyframes aparecer {
+  0% {
+    background-color: transparent;
+  }
+  100% {
+    background-color: #ff4606;
+  }
+}
