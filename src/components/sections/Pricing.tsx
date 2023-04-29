@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { HiXMark } from "react-icons/hi2";
+import { BsWhatsapp } from "react-icons/bs";
+import { AiOutlineEye } from "react-icons/ai";
 
 type Plan = {
   name: string;
@@ -15,7 +17,7 @@ const featuresPerPlan: Plan[] = [
       "landing page básica",
       "diseño responsive",
       "hosting y dominio",
-      "seguridad ssl",
+      "seguridad SSL",
       "calendario cliente",
     ],
   },
@@ -28,7 +30,7 @@ const featuresPerPlan: Plan[] = [
       "landing page (5 secciones)",
       "diseño responsive",
       "hosting y dominio",
-      "seguridad ssl",
+      "seguridad SSL",
       "soporte técnico",
       "calendario cliente",
     ],
@@ -43,7 +45,7 @@ const featuresPerPlan: Plan[] = [
       "web completa (5 secciones)",
       "diseño responsive",
       "hosting y dominio",
-      "seguridad ssl",
+      "seguridad SSL",
       "soporte técnico",
       "calendario cliente",
       "capacitacion",
@@ -51,32 +53,94 @@ const featuresPerPlan: Plan[] = [
   },
 ];
 
-const PlanCard = (name: string, setSelectedPlan: () => void) => {
-  return <div></div>;
+const PlanCard = (props: { name: string; setSelectedPlan: () => void }) => {
+  const priceBefore = "XXX";
+  const priceNow = "XXX";
+  return (
+    <div
+      className="flex-1 rounded-2xl bg-white p-2 drop-shadow-lg"
+      style={{ color: "#333", borderColor: "#ddd" }}
+    >
+      <h3 className="mb-1 text-center text-lg font-bold capitalize">
+        {props.name}
+      </h3>
+      <div className="flex justify-center">
+        <i className="text-xs line-through">S/.{priceBefore}</i>
+      </div>
+      <div className="mb-1 mt-[-0.75rem]">
+        <p className="flex items-baseline justify-center gap-1">
+          <span className="" style={{ fontSize: "2rem" }}>
+            S/.{priceNow}
+          </span>
+        </p>
+      </div>
+      <div className="flex justify-between">
+        <label
+          htmlFor="features-modal"
+          className="btn-outline btn h-10 min-h-min px-3 lowercase"
+          onClick={props.setSelectedPlan}
+        >
+          <AiOutlineEye className="h-6 w-6" style={{ color: "#333" }} />
+        </label>
+        <a href="https://wa.me/+51981148272">
+          <button className="btn-outline btn flex h-10 min-h-min gap-2 border border-green-600 px-2 lowercase text-green-600">
+            Cotizar
+            <BsWhatsapp className="h-6 w-6" />
+          </button>
+        </a>
+      </div>
+    </div>
+  );
 };
 
 export default function Pricing() {
   const [selectedPlan, setSelectedPlan] = useState(featuresPerPlan[0] as Plan);
   return (
-    <>
-      <label htmlFor="features-modal" className="btn">
-        open modal
-      </label>
+    <div className="mt-16 px-5">
+      <div
+        className="mb-8 font-bold"
+        style={{ fontSize: "3.5rem", lineHeight: 1.1, color: "#333" }}
+      >
+        <p>nuestros planes</p>
+        <p></p>
+      </div>
+      <div className="mb-2 flex gap-2">
+        <PlanCard
+          name={featuresPerPlan[0]?.name as string}
+          setSelectedPlan={() => {
+            console.log("");
+          }}
+        ></PlanCard>
+        <PlanCard
+          name={featuresPerPlan[1]?.name as string}
+          setSelectedPlan={() => {
+            console.log("");
+          }}
+        ></PlanCard>
+      </div>
+      <div className="flex gap-2">
+        <PlanCard
+          name={featuresPerPlan[2]?.name as string}
+          setSelectedPlan={() => {
+            console.log("");
+          }}
+        ></PlanCard>
+        <PlanCard
+          name="Corporativo"
+          setSelectedPlan={() => {
+            console.log("");
+          }}
+        ></PlanCard>
+      </div>
+
       <input type="checkbox" id="features-modal" className="modal-toggle" />
       <label
         htmlFor="features-modal"
         className="modal modal-bottom cursor-pointer sm:modal-middle"
+        style={{ color: "#333" }}
       >
         <label className="modal-box relative" htmlFor="">
-          <div className="flex items-center justify-between">
-            <h3 className="text-2xl font-bold">{selectedPlan.name}</h3>
-            <label
-              htmlFor="features-modal"
-              className="btn rounded border border-white"
-            >
-              <HiXMark className="h-6 w-6 text-white" />
-            </label>
-          </div>
+          <h3 className="text-2xl font-bold">{selectedPlan.name}</h3>
           <ul className="list-disc px-8 py-2">
             {selectedPlan.features.map((f, idx) => (
               <li key={idx}>
@@ -84,8 +148,19 @@ export default function Pricing() {
               </li>
             ))}
           </ul>
+          <div className="flex items-center justify-end gap-1">
+            <a href="https://wa.me/+51981148272">
+              <button className="btn flex gap-2 border border-green-500 bg-green-500 lowercase active:bg-green-600">
+                Cotizar
+                <BsWhatsapp className="h-6 w-6 text-white" />
+              </button>
+            </a>
+            <label htmlFor="features-modal" className="btn lowercase">
+              <HiXMark className="h-6 w-6 text-white" />
+            </label>
+          </div>
         </label>
       </label>
-    </>
+    </div>
   );
 }

@@ -15,7 +15,7 @@ export default function AboutUs() {
       <Image
         alt="brand-logo"
         className="self-center"
-        src="/logo.svg"
+        src="/Sapiens.svg"
         width={250}
         height={50}
       />
