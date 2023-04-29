@@ -33,7 +33,7 @@
     background-color: #ff4606;
   }
   10% {
-    background-color: rgb(219, 10, 91);
+    background-color: rgb(255, 0, 0);
   }
   20% {
     background-color: rgb(89, 171, 227);
@@ -60,9 +60,44 @@
     background-color: #ff4606;
   }
 }
+@keyframes borderanimation {
+  from,
+  to {
+    border-color: #ff4606;
+  }
+  10% {
+    border-color: rgb(255, 0, 221);
+  }
+  20% {
+    border-color: rgb(89, 171, 227);
+  }
+  30% {
+    border-color: rgb(37, 116, 169);
+  }
+  40% {
+    border-color: rgb(3, 201, 169);
+  }
+  50% {
+    border-color: rgb(22, 160, 133);
+  }
+  60% {
+    border-color: rgb(250, 220, 46);
+  }
+  70% {
+    border-color: rgb(243, 156, 18);
+  }
+  80% {
+    border-color: rgb(47, 104, 216);
+  }
+  90% {
+    border-color: #6e06ff;
+  }
+}
 
 .circle {
-  animation: aparecer 0.5s ease-in-out forwards;
+  animation: borderanimation 20s ease-in-out infinite;
+  color: #333;
+  border: 2px solid #333;
 }
 .circle:nth-child(1) {
   animation-delay: 0.5s;
@@ -75,13 +110,4 @@
 }
 .circle:nth-child(4) {
   animation-delay: 2s;
-}
-
-@keyframes aparecer {
-  0% {
-    background-color: transparent;
-  }
-  100% {
-    background-color: #ff4606;
-  }
 }

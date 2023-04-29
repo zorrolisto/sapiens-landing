@@ -19,7 +19,7 @@ export default function Hero() {
           height={110}
         />
       </div>
-      <div className="flex gap-2 text-sm text-white">
+      <div className="flex gap-4 text-sm" style={{ color: "#333" }}>
         <p>Web-design</p>
         <p>Branding</p>
         <p>Marketing</p>
