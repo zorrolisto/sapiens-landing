@@ -5,12 +5,16 @@ import { AiOutlineEye } from "react-icons/ai";
 
 type Plan = {
   name: string;
+  priceBefore: string;
+  priceNow: string;
   features: string[];
 };
 
 const featuresPerPlan: Plan[] = [
   {
     name: "Básico",
+    priceBefore: "799",
+    priceNow: "599",
     features: [
       "branding basico (2 logos)",
       "diseño UI/UX",
@@ -23,6 +27,8 @@ const featuresPerPlan: Plan[] = [
   },
   {
     name: "Hobby",
+    priceBefore: "1299",
+    priceNow: "999",
     features: [
       "branding",
       "post ig (15)",
@@ -37,6 +43,8 @@ const featuresPerPlan: Plan[] = [
   },
   {
     name: "Empresarial",
+    priceBefore: "1899",
+    priceNow: "1599",
     features: [
       "branding",
       "post ig (15)",
@@ -53,37 +61,40 @@ const featuresPerPlan: Plan[] = [
   },
 ];
 
-const PlanCard = (props: { name: string; setSelectedPlan: () => void }) => {
-  const priceBefore = "XXX";
-  const priceNow = "XXX";
+const PlanCard = (props: {
+  name: string;
+  priceBefore: string;
+  priceNow: string;
+  setSelectedPlan: () => void;
+}) => {
   return (
     <div
-      className="flex-1 rounded-2xl bg-white p-2 drop-shadow-lg"
+      className="w-full rounded-2xl bg-white p-2 drop-shadow-lg"
       style={{ color: "#333", borderColor: "#ddd" }}
     >
-      <h3 className="mb-1 text-center text-lg font-bold capitalize">
+      <h3 className="mb-2 text-center text-2xl font-bold capitalize">
         {props.name}
       </h3>
       <div className="flex justify-center">
-        <i className="text-xs line-through">S/.{priceBefore}</i>
+        <i className="text-xs line-through">S/.{props.priceBefore}</i>
       </div>
       <div className="mb-1 mt-[-0.75rem]">
         <p className="flex items-baseline justify-center gap-1">
-          <span className="" style={{ fontSize: "2rem" }}>
-            S/.{priceNow}
+          <span className="" style={{ fontSize: "2.5rem" }}>
+            S/.{props.priceNow}
           </span>
         </p>
       </div>
-      <div className="flex justify-between">
+      <div className="flex justify-center gap-2">
         <label
           htmlFor="features-modal"
-          className="btn-outline btn h-10 min-h-min px-3 lowercase"
+          className="btn-outline btn lowercase"
           onClick={props.setSelectedPlan}
         >
           <AiOutlineEye className="h-6 w-6" style={{ color: "#333" }} />
         </label>
         <a href="https://wa.me/+51981148272">
-          <button className="btn-outline btn flex h-10 min-h-min gap-2 border border-green-600 px-2 lowercase text-green-600">
+          <button className="btn-outline btn flex w-max gap-2 border border-green-600 px-2 lowercase text-green-600">
             Cotizar
             <BsWhatsapp className="h-6 w-6" />
           </button>
@@ -104,29 +115,35 @@ export default function Pricing() {
         <p>nuestros planes</p>
         <p></p>
       </div>
-      <div className="mb-2 flex gap-2">
+      <div className="mb-2 flex flex-col items-center gap-3">
         <PlanCard
           name={featuresPerPlan[0]?.name as string}
+          priceBefore={featuresPerPlan[0]?.priceBefore as string}
+          priceNow={featuresPerPlan[0]?.priceNow as string}
           setSelectedPlan={() => {
             console.log("");
           }}
         ></PlanCard>
         <PlanCard
           name={featuresPerPlan[1]?.name as string}
+          priceBefore={featuresPerPlan[1]?.priceBefore as string}
+          priceNow={featuresPerPlan[1]?.priceNow as string}
           setSelectedPlan={() => {
             console.log("");
           }}
         ></PlanCard>
-      </div>
-      <div className="flex gap-2">
         <PlanCard
           name={featuresPerPlan[2]?.name as string}
+          priceBefore={featuresPerPlan[2]?.priceBefore as string}
+          priceNow={featuresPerPlan[2]?.priceNow as string}
           setSelectedPlan={() => {
             console.log("");
           }}
         ></PlanCard>
         <PlanCard
           name="Corporativo"
+          priceBefore={featuresPerPlan[2]?.priceBefore as string}
+          priceNow={featuresPerPlan[2]?.priceNow as string}
           setSelectedPlan={() => {
             console.log("");
           }}
