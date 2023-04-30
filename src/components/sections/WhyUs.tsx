@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 
-const PlanCard = (props: { icon: ReactNode; title: string }) => {
+/*const PlanCard = (props: { icon: ReactNode; title: string }) => {
   const priceBefore = "XXX";
   const priceNow = "XXX";
   return (
@@ -38,7 +38,7 @@ const PlanCard = (props: { icon: ReactNode; title: string }) => {
       </div>
     </div>
   );
-};
+};*/
 
 export default function WhyUs() {
   return (
